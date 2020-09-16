@@ -1,0 +1,18 @@
+{
+    "profiles" : [
+        {
+            "basics":{
+                "name":"Kowshik407",
+                "role":"Student",
+                "email": "aitha.kowshik3@gmail.com"
+            }
+        },
+        {
+            "basics":{
+                "name":"Aravind415",
+                "role":"Data Scientist",
+                "email": "varavind18@gmail.com"
+            }
+        }
+    ]
+}

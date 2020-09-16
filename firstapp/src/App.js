@@ -132,17 +132,114 @@
 // export default App;
 
 
+// import React from 'react';
+// import logo from './logo.svg';
+// import './App.css';
+// import FuncHook  from './FunctionHooks'
+// function App() {
+//   return (
+//     <div className="App">
+//       <h1> React JS </h1>
+//       <FuncHook />
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+// import React from 'react';
+// import State from './State';
+
+// var App=()=>{
+//   return <div> <State /> <h2> This is the Heading. </h2></div>
+// }
+
+// export default App;
+
+// import React from 'react';
+// import {profiles} from './data.json';
+
+// var App=()=>{
+//   console.log(profiles);
+//   return(
+//     <div> <h2> Profiles </h2> <Home /> </div>
+//   )
+// }
+// var Home=()=>{
+//   return(
+//   profiles.map((value,index)=>(
+//     <div>
+//       <h2> { value.basics.name } </h2>
+//       <h3> { value.basics.role } </h3>
+//     </div>
+//   ))
+//   )
+// }
+// export default App;
+
+// import React from 'react';
+// import {BrowserRouter,Route} from 'react-router-dom';
+// import {profiles} from './data.json'
+// import Resume from './Resume'
+// var App=()=>{
+//   return(
+//     <div>
+//       <h2> This is the Heading. </h2>
+//       <BrowserRouter>
+//         <Route  exact path='/'component={Home}/>
+//         <Route  exact path='/resume'component={Resume}/>
+//       </BrowserRouter>
+//     </div>
+//   )
+// }
+
+// var Home=()=>{
+//   return(
+//   profiles.map((value,index)=>(
+//     <div>
+//       <h2> { value.basics.name } </h2>
+//       <h3> { value.basics.role } </h3>
+//     </div>
+//   ))
+//   )
+// }
+
+// export default App;
+
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import FuncHook  from './FunctionHooks'
+import data from './data';
+// import data from './data/Resume.json';
+import Resumes from './Resumes';
+import {BrowserRouter,Route,Link} from 'react-router-dom';
+
 function App() {
   return (
-    <div className="App">
-      <h1> React JS </h1>
-      <FuncHook />
+    <div className='App'>
+      <BrowserRouter>
+        <Route exact path='/' component={Card} />
+        <Route exact path='/Resumes' component={Resumes} />
+      </BrowserRouter>
     </div>
-  );
+  )
+}
+
+let Card=()=>{
+  let profile=data.profiles;
+  return(
+    <div className='row justify-content center'>
+      {profile.map((carddetails,index)=>(
+        <div className='col-lg-4 col-md-4 col-sm-10 mt-1' key={index}>
+          <div className='card'>
+            <div className="card-body">
+              <h1> {carddetails.basics.name} </h1>
+              <Link to={{pathname:'/Resumes'}} className='btn btn-primary'> View Details</Link>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
 }
 
 export default App;
